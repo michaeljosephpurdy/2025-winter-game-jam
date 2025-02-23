@@ -1,0 +1,31 @@
+{
+	"identifier": "Level_1",
+	"uniqueIdentifer": "180bc430-e920-11ef-bd97-1703a8ab3e5c",
+	"x": 656,
+	"y": 112,
+	"width": 384,
+	"height": 216,
+	"bgColor": "#696A79",
+	"neighbourLevels": [],
+	"customFields" : {},
+	"layers": [
+		"Background.png",
+		"World_Auto.png",
+		"Foreground.png"
+	],
+	"entities": {
+		"PLAYER_SPAWN": [
+			{
+				"id": "PLAYER_SPAWN",
+				"iid": "1a297410-e920-11ef-bd97-8de099f6c7bd",
+				"layer": "Entities",
+				"x": 48,
+				"y": 144,
+				"width": 16,
+				"height": 16,
+				"color": 0,
+				"customFields" : {}
+			}
+		]
+	}
+}

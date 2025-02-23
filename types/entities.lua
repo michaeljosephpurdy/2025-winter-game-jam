@@ -1,0 +1,29 @@
+---@meta
+---Entities are ma up of Components and provide helpful typing for bundeling components together
+---
+---@alias Entity
+---| PlayerEntity
+---| PlayerSpawnEntity
+---| LevelExitEntity
+---| TileEntity
+---| JumpActionEntity
+---
+---@alias PlayerEntity
+---| Player
+---| Position
+---| Drawable
+---| Animation
+---| Gravity
+---| FuturePosition
+---| DeltaPosition
+---| Velocity
+---| Collidable
+---| Jumpable
+---| CameraActor
+---| Controllable
+---| Movable
+---| Drawable
+---@alias PlayerSpawnEntity PlayerSpawn | Position
+---@alias LevelExitEntity LevelExit | Trigger | Drawable | Collidable
+---@alias TileEntity Position | Collidable
+---@alias JumpActionEntity Position | Collidable | Action
