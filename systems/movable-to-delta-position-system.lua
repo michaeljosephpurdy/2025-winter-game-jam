@@ -1,5 +1,8 @@
 local MovableDeltaPositionSystem = tiny.processingSystem()
-MovableDeltaPositionSystem.filter = tiny.requireAll('movable', 'delta_position')
+---@param e Movable | DeltaPosition
+function MovableDeltaPositionSystem:filter(e)
+  return e.movable and e.delta_position
+end
 
 ---@param e Movable | DeltaPosition
 function MovableDeltaPositionSystem:process(e, dt)

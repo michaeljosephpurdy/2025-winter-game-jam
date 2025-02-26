@@ -1,17 +1,15 @@
 local SpriteDrawingSystem = tiny.sortedProcessingSystem()
 SpriteDrawingSystem.filter = tiny.requireAll('position', 'drawable')
 
-function SpriteDrawingSystem:initialize()
-  self.ordered_sprites = {}
-  self.default_offset = vector(0, 0)
+---@param e Position | Drawable
+function SpriteDrawingSystem:filter(e)
+  return e.position and e.drawable
 end
 
----@param e Drawable
-function SpriteDrawingSystem:onAdd(e)
-  if e.drawable.centered then
-    local width, height = e.drawable.sprite:getDimensions()
-    e.drawable.sprite_offset = vector(-width / 2, -height / 2)
-  end
+---@param props SystemProps
+function SpriteDrawingSystem:initialize(props)
+  self.ordered_sprites = {}
+  self.default_offset = vector(0, 0)
 end
 
 ---@param e1 Drawable
@@ -36,16 +34,6 @@ function SpriteDrawingSystem:process(sprite, dt)
     x_dir = x_dir * -1
     offset_x = offset_x * -1
   end
-  ---@cast sprite +Shadow
-  if sprite.shadow then
-    local alpha = sprite.shadow.alpha or 0.5
-    local offset = sprite.shadow.offset or vector(0, 10)
-    local position = sprite.position + offset
-    love.graphics.setColor(0, 0, 0, alpha)
-    love.graphics.ellipse('fill', position.x, position.y, sprite.shadow.radius.x, sprite.shadow.radius.y)
-    love.graphics.setColor(1, 1, 1, 1)
-  end
-  ---@cast sprite -Shadow
   if sprite.drawable.animation then
     sprite.drawable.animation:draw(
       x + offset_x,
@@ -56,6 +44,9 @@ function SpriteDrawingSystem:process(sprite, dt)
       rotation_offset.x,
       rotation_offset.y
     )
+  elseif sprite.drawable.color then
+    love.graphics.setColor(sprite.drawable.color.r or 0, sprite.drawable.color.g or 0, sprite.drawable.color.b or 0)
+    love.graphics.rectangle('fill', x, y, sprite.drawable.width, sprite.drawable.height)
   else
     love.graphics.draw(
       sprite.drawable.sprite,

@@ -20,7 +20,6 @@ function KeyboardState:push(keycode)
 end
 
 function KeyboardState:release(keycode)
-  self.controls[keycode] = false
   self.released[keycode] = true
 end
 

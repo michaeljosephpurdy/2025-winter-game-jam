@@ -6,6 +6,14 @@ function CameraState:initialize()
   self.screen_y = 0
   self.screen_xx = 0
   self.screen_yy = 0
+  self.to_real = function(self, x, y)
+    assert(nil, 'override camera_state:to_real')
+    return 0, 0
+  end
+  self.to_game = function(self, x, y)
+    assert(nil, 'override camera_state:to_game')
+    return 0, 0
+  end
 end
 
 function CameraState:set_screen_rect(x, y, xx, yy)

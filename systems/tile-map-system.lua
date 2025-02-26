@@ -45,14 +45,14 @@ function TileMapSystem:initialize(props)
 end
 
 function TileMapSystem:onAdd(e)
-  print('tilemap added')
-
-  local level_id = e.level_id or 'Level_0'
+  local level_id = e.level_id or self.loaded_level or 'Level_0'
   local loaded_level = self.ldtk:load(level_id, self.on_image, self.on_tile, self.on_entity)
+  self.game_state:set_actions(loaded_level.available_actions)
   self.level_information.top_left = vector(loaded_level.x, loaded_level.y)
   self.level_information.bottom_right = vector(loaded_level.xx, loaded_level.yy)
   self.level_information.level_id = loaded_level.level_id
   self.loaded_level = level_id
+  self.game_state.state = 'PAUSE'
 end
 
 return TileMapSystem

@@ -13,7 +13,13 @@ function PlayerSpawningSystem:onAdd(e)
       id = 'PLAYER',
     })[1]
   end
-  self.player.controllable.is_active = true
+  if e.move_right then
+    self.player.movable.move_forward = true
+    self.player.movable.move_backward = false
+  else
+    self.player.movable.move_forward = false
+    self.player.movable.move_backward = true
+  end
   self.player.position = e.position:clone()
   self.world:addEntity(self.player)
 end

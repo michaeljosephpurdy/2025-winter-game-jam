@@ -1,5 +1,5 @@
 function love.load(args)
-  HOT_RELOAD = (args[1] or '') == '--hotreload'
+  IS_DEV = args[1] == '--hotreload'
   math.randomseed(os.time())
 
   json = require('plugins.json')
@@ -10,6 +10,8 @@ function love.load(args)
   cron = require('plugins.cron')
   peachy = require('plugins.peachy')
   bump = require('plugins.bump')
+  push = require('plugins.push')
+
   GAME_WIDTH = 400
   GAME_HEIGHT = 240
 
@@ -18,27 +20,31 @@ function love.load(args)
     'systems.player-spawning-system',
     'systems.mouse-state-system',
     'systems.audio-system',
+    'systems.keyboard-state-system',
+    'systems.game-state-toggle-system',
+    'systems.action-choice-system',
     'systems.action-trigger-placement-system',
     'systems.collision-registration-system',
     'systems.tile-map-system',
-    'systems.movable-player-system',
+    'systems.entity-turning-system',
     'systems.movable-to-delta-position-system',
     'systems.movable-to-velocity-system',
     'systems.gravity-application-system',
     'systems.entity-movement-system',
     'systems.sprite-animating-system',
+    'systems.coroutine-resuming-system',
     'systems.collision-detection-system',
     'systems.player-level-boundary-system',
-    'systems.jump-reset-system',
+    'systems.entity-level-boundary-system',
     'systems.player-animation-system',
-    'systems.camera-system',
     'systems.trigger-resetting-system',
-    'systems.foreground-shadow-drawing-system',
+    'systems.camera-system',
     'systems.sprite-drawing-system',
-    'systems.collision-drawing-system',
+    --'systems.collision-drawing-system',
     'systems.dialogue-system',
     'systems.screen-transition-system',
     'systems.text-display-system',
+    'systems.ui-system',
     'systems.entity-cleanup-system',
     'systems.time-to-live-system',
     'systems.delayed-function-execution-system',
@@ -60,7 +66,6 @@ function love.load(args)
   tiny_world = tiny.world()
   local bump_world = bump.newWorld(64)
 
-  local system_props = nil --[[@as SystemProps]]
   reload_system_props = function()
     local entity_factory = unrequire_require('shared-access.entity-factory')() --[[@as EntityFactory]]
     local game_state = unrequire_require('shared-access.game-state')() --[[@as GameState]]
@@ -68,6 +73,7 @@ function love.load(args)
     local mouse_state = unrequire_require('shared-access.mouse')() --[[@as MouseState]]
     local level_information = unrequire_require('shared-access.level-information')() --[[@as LevelInformation]]
     local entity_lookup = unrequire_require('shared-access.entity-lookup')() --[[@as EntityLookup]]
+    local keyboard_state = unrequire_require('shared-access.keyboard')() --[[@as KeyboardState]]
     ---@class SystemProps
     system_props = {
       mouse_state = mouse_state,
@@ -77,7 +83,9 @@ function love.load(args)
       level_information = level_information,
       screen_information = { width = GAME_WIDTH, height = GAME_HEIGHT },
       entity_lookup = entity_lookup,
+      keyboard_state = keyboard_state,
       bump_world = bump_world,
+      push = push,
     }
   end
 
@@ -102,8 +110,9 @@ function love.load(args)
   end
 
   function start_game()
-    reload_world()
+    print('starting game')
     tiny_world:clearEntities()
+    reload_world()
     tiny_world:addEntity({
       event = {
         load_tile_map = true,
@@ -125,7 +134,7 @@ end
 function love.update(dt)
   delta_time = dt
   if
-    HOT_RELOAD
+    IS_DEV
     and (
       systems_last_modified ~= love.filesystem.getInfo('systems', 'directory').modtime
       or shared_access_last_modified ~= love.filesystem.getInfo('shared-access', 'directory').modtime
@@ -134,6 +143,7 @@ function love.update(dt)
     reload_world()
     systems_last_modified = love.filesystem.getInfo('systems', 'directory').modtime
     shared_access_last_modified = love.filesystem.getInfo('shared-access', 'directory').modtime
+    return
   end
 end
 
@@ -161,16 +171,13 @@ function love.keyreleased(k)
     },
   }
   tiny_world:addEntity(event)
-  if k == 'escape' then
-    start_game()
-  end
 end
 
 function love.resize(w, h)
   ---@type Event
   local event = {
     event = {
-      resize = true,
+      screen_resize = true,
       width = w,
       height = h,
     },

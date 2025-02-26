@@ -1,15 +1,17 @@
 local CameraSystem = tiny.processingSystem()
 
----@param e (CameraActor | Position) | table
+---@param e Event
 function CameraSystem:filter(e)
-  return (e.camera_actor and e.position) or e.screen_shake or e.resize
+  return e.event and e.event.screen_resize
 end
 
 ---@param props SystemProps
 function CameraSystem:initialize(props)
   self.camera_state = props.camera_state
   self.level_info = props.level_information
-  self.push = require('plugins.push')
+  self.push = props.push
+  self.game_state = props.game_state
+  self.mouse_state = props.mouse_state
   local windowWidth, windowHeight = love.graphics.getDimensions()
   self.push:setupScreen(GAME_WIDTH, GAME_HEIGHT, windowWidth, windowHeight, {
     fullscreen = false,
@@ -22,56 +24,43 @@ function CameraSystem:initialize(props)
   self.speed = 5
   self.screen_info = props.screen_information
   props.push = self.push
-  if HOT_RELOAD then
+  if IS_DEV then
     love.window.setPosition(944, 516)
+  end
+  props.camera_state.to_game = function(camera_self, x, y)
+    local _x, _y = self.push:toGame(x, y)
+    return _x + self.position.x, _y + self.position.y
+  end
+  props.camera_state.to_real = function(camera_self, x, y)
+    return self.push:toReal(x - self.position.x, y - self.position.y)
   end
 end
 
+---@param dt number
 function CameraSystem:preWrap(dt)
   self.push:start()
+  self.position = self.level_info.top_left:clone()
+  love.graphics.translate(-self.level_info.top_left.x, -self.level_info.top_left.y)
 end
 
+---@param dt number
 function CameraSystem:postWrap(dt)
   self.push:finish()
 end
 
+---@param e Event
 function CameraSystem:onAdd(e)
-  if e.resize and e.is_event then
-    self.push:resize(e.width, e.height)
-    self.screen_info.width, self.screen_info.height = e.width, e.height
+  local event = e.event
+  if not event or not event.screen_resize then
+    return
   end
+  self.push:resize(event.width, event.height)
+  self.screen_info.width, self.screen_info.height = event.width, event.height
 end
 
 ---@param e (CameraActor| Position)
 function CameraSystem:process(e, dt)
-  if e.camera_actor and e.camera_actor.is_active then
-    self.old_position = self.position:clone()
-    self.position = e.position + self.offset
-    if e.position.x >= self.level_info.bottom_right.x - GAME_WIDTH / 2 then
-      self.position.x = self.level_info.bottom_right.x - GAME_WIDTH
-    elseif e.position.x <= self.level_info.top_left.x + GAME_WIDTH / 2 then
-      self.position.x = self.level_info.top_left.x
-    end
-    -- build y
-    self.position.y = self.level_info.bottom_right.y - GAME_HEIGHT
-    self.position.x = lerp(self.old_position.x, self.position.x, self.speed * dt)
-    self.position.y = lerp(self.old_position.y, self.position.y, self.speed * dt)
-    love.graphics.translate(-self.position.x, -self.position.y)
-    self.camera_state:persist(-self.position.x, -self.position.y, self.push:getScale())
-    self.camera_state:set_screen_rect(
-      self.position.x + self.offset.x,
-      self.position.y + self.offset.y,
-      self.position.x + GAME_WIDTH,
-      self.position.y + GAME_HEIGHT
-    )
-    return
-  end
-  if e.screen_shake then
-    local shake = love.math.newTransform()
-    shake:translate(love.math.random(-e.magnitude, e.magnitude), love.math.random(-e.magnitude, e.magnitude))
-    love.graphics.applyTransform(shake)
-    return
-  end
+  return
 end
 
 return CameraSystem

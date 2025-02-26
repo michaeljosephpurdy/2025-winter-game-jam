@@ -11,8 +11,8 @@
 ---@class Gravity
 ---@field gravity _Gravity
 ---@class _Gravity
----@field enabled boolean
----@field on_ground boolean
+---@field disabled? boolean
+---@field on_ground? boolean
 
 ---@class Position
 ---@field position Vector.lua
@@ -29,39 +29,21 @@
 ---@field width number
 ---@field height number
 ---@field filter? fun(self: Entity, other: Entity)
----@field radius? number
 ---@field is_solid? boolean
 ---@field is_tile? boolean
 ---@field detection? boolean
 ---@field on_ground? boolean
 ---@field left_wall? boolean
 ---@field right_wall? boolean
+---@field on_collide? function
 
 ---@class LinkedLevel
 ---@field linked_level_id string
 
----@class Controllable
----@field controllable _Controllable
----@class _Controllable
----@field is_active boolean
-
----@class Jumpable
----@field jumpable _Jumpable
----@class _Jumpable
----@field charge? number
----@field state 'idle' | 'charging' | 'jump' | 'jumping'
----@field charge_small_jump? boolean
----@field charge_large_jump? boolean
----@field did_small_jump? boolean
----@field did_large_jump? boolean
----@field small_jump_height number
----@field large_jump_height number
----@field move_forward? boolean
----@field move_backward? boolean
-
 ---@class Movable
 ---@field movable _Movable
 ---@class _Movable
+---@field paused? boolean
 ---@field is_moving boolean
 ---@field last_direction 'forward' | 'backward'
 ---@field move_forward boolean
@@ -83,14 +65,9 @@
 ---@field sprite_offset? Vector.lua
 ---@field rotation_offset? Vector.lua
 ---@field hidden? boolean
----@field centered? boolean
-
----@class Shadow
----@field shadow _Shadow
----@class _Shadow
----@field alpha? number
----@field radius Vector.lua
----@field offset? Vector.lua
+---@field color? { r: number, g: number, b: number }
+---@field width? number
+---@field height? number
 
 ---@class PlayerSpawn
 ---@field player_spawn boolean
@@ -113,6 +90,7 @@
 ---@field key_press? boolean
 ---@field key_release? boolean
 ---@field keycode? string
+---@field screen_resize? boolean
 ---@field width? number
 ---@field height? number
 
@@ -144,5 +122,16 @@
 ---@field is_level_exit boolean
 ---@field linked_level_id? string
 ---
+---@class Killer
+---@field kills_player boolean
+---
+---
+---
+---GO UPDATE entity-factory EntityTypes
+---@alias ActionType
+---|'JUMP'
+---|'LONG_JUMP'
+---|'WAIT'
+---|'DRILL'
 ---@class Action
----@field action 'JUMP' | 'WAIT'
+---@field action ActionType

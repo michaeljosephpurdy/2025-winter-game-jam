@@ -16,7 +16,6 @@ function CollisionRegistrationSystem:onAdd(e)
     assert(nil, e.type .. ' does not have collision.width or collision.height')
   end
   if self.bump_world:hasItem(e) then
-    print('skipping')
     return
   end
   self.bump_world:add(e, e.position.x, e.position.y, e.collidable.width, e.collidable.height)

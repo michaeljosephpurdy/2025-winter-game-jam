@@ -6,7 +6,7 @@
 ---| PlayerSpawnEntity
 ---| LevelExitEntity
 ---| TileEntity
----| JumpActionEntity
+---| ActionEntity
 ---
 ---@alias PlayerEntity
 ---| Player
@@ -26,4 +26,4 @@
 ---@alias PlayerSpawnEntity PlayerSpawn | Position
 ---@alias LevelExitEntity LevelExit | Trigger | Drawable | Collidable
 ---@alias TileEntity Position | Collidable
----@alias JumpActionEntity Position | Collidable | Action
+---@alias ActionEntity Position | Collidable | Action

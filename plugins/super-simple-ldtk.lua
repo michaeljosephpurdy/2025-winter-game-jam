@@ -7,11 +7,6 @@ local FILE_NAMES = {
 }
 local SuperSimpleLdtk = {}
 
-local function load_and_parse_csv(file)
-  local content = love.filesystem.read('string', file)
-  return csv.openstring(content)
-end
-
 local function load_and_parse_json(file)
   local content = love.filesystem.read('string', file)
   return json.decode(content)

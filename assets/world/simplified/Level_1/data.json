@@ -1,13 +1,27 @@
 {
 	"identifier": "Level_1",
 	"uniqueIdentifer": "180bc430-e920-11ef-bd97-1703a8ab3e5c",
-	"x": 656,
-	"y": 112,
-	"width": 384,
-	"height": 216,
+	"x": 832,
+	"y": 576,
+	"width": 400,
+	"height": 240,
 	"bgColor": "#696A79",
-	"neighbourLevels": [],
-	"customFields" : {},
+	"neighbourLevels": [
+		{
+			"levelIid": "6b43f440-25d0-11ef-9316-835ad4ed59ca",
+			"dir": "w"
+		},
+		{
+			"levelIid": "f1099430-e920-11ef-bd97-3792d4a529d3",
+			"dir": "e"
+		}
+	],
+	"customFields": {
+		"available_actions": [
+			"JUMP",
+			"JUMP"
+		]
+	},
 	"layers": [
 		"Background.png",
 		"World_Auto.png",
@@ -19,12 +33,34 @@
 				"id": "PLAYER_SPAWN",
 				"iid": "1a297410-e920-11ef-bd97-8de099f6c7bd",
 				"layer": "Entities",
-				"x": 48,
+				"x": 32,
 				"y": 144,
 				"width": 16,
 				"height": 16,
 				"color": 0,
-				"customFields" : {}
+				"customFields": {
+					"move_right": true
+				}
+			}
+		],
+		"LEVEL_EXIT": [
+			{
+				"id": "LEVEL_EXIT",
+				"iid": "bf394a30-e920-11ef-bd97-51c4e9753bca",
+				"layer": "Entities",
+				"x": 352,
+				"y": 144,
+				"width": 16,
+				"height": 16,
+				"color": 2434341,
+				"customFields": {
+					"entrance": {
+						"entityIid": "f109bb41-e920-11ef-bd97-63a95ae372cf",
+						"layerIid": "f109bb40-e920-11ef-bd97-e7c83bfb6ad0",
+						"levelIid": "f1099430-e920-11ef-bd97-3792d4a529d3",
+						"worldIid": "6b43cd31-25d0-11ef-9316-03188099d48f"
+					}
+				}
 			}
 		]
 	}

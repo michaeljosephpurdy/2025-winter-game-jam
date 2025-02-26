@@ -3,7 +3,8 @@
 MouseState = class('MouseState') --[[@as MouseState]]
 MouseState.static.is_singleton = true
 
-function MouseState:initialize()
+---@param props SystemProps
+function MouseState:initialize(props)
   self.x, self.y = 0, 0
 end
 
@@ -11,11 +12,6 @@ end
 function MouseState:get_position()
   return self.x, self.y
 end
-
----@return number, number
---function MouseState:get_position_on_grid()
---return math.floor(self.x / EntityGridData.grid_size), math.floor(self.y / EntityGridData.grid_size)
---end
 
 ---@return boolean
 function MouseState:is_left_click()
@@ -43,8 +39,8 @@ function MouseState:update()
   local was_right_click_down = self.is_right_click_down
   self.is_left_click_down = love.mouse.isDown(1)
   self.is_right_click_down = love.mouse.isDown(2)
-  self.was_left_click_just_released = not was_left_click_down and self.is_left_click_down
-  self.was_right_click_just_released = not was_right_click_down and self.is_right_click_down
+  self.was_left_click_just_released = was_left_click_down and not self.is_left_click_down
+  self.was_right_click_just_released = was_right_click_down and not self.is_right_click_down
 end
 
 return MouseState --[[@as MouseState]]

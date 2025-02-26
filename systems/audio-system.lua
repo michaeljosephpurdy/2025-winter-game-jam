@@ -3,7 +3,6 @@ AudioSystem.filter = tiny.requireAll('audio')
 
 function AudioSystem:onAddToWorld()
   --self.world:addEntity(Audio('music'))
-  --
 end
 
 function AudioSystem:onAdd(e)

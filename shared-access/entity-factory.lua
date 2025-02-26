@@ -5,10 +5,10 @@ local EntityTypes = {
   PLAYER = 'PLAYER',
   PLAYER_SPAWN = 'PLAYER_SPAWN',
   LEVEL_EXIT = 'LEVEL_EXIT',
-  JUMP_ACTION = 'JUMP_ACTION',
-  WAIT_ACTION = 'WAIT_ACTION',
-  DRILL_ACTION = 'DRILL_ACTION',
-  LONG_JUMP_ACTION = 'LONG_JUMP_ACTION',
+  ACTION = 'ACTION',
+  ONE_EYE = 'ONE_EYE',
+  STATIONARY_ACTION = 'STATIONARY_ACTION',
+  TEXT = 'TEXT',
 }
 EntityFactory.types = EntityTypes
 
@@ -19,74 +19,91 @@ function parseEntity(type)
     return {
       player_spawn = true,
     }
-  elseif type == 'JUMP_ACTION' then
-    ---@type JumpActionEntity
+  elseif type == 'TEXT' then
+    ---@type Position | Text
     return {
       position = vector(0, 0),
-      action = 'JUMP',
-      gravity = { enabled = true },
+      text = 'test',
+    }
+  elseif type == 'ACTION' then
+    ---@type ActionEntity
+    return {
+      position = vector(0, 0),
+      gravity = {},
+      future_position = vector(0, 0),
+      delta_position = vector(0, 0),
       velocity = vector(0, 0),
+      drawable = {
+        color = { r = 0, g = 0, b = 1 },
+        width = 16,
+        height = 16,
+      },
       collidable = {
         height = 16,
         width = 16,
+        detection = true,
       },
     }
   elseif type == 'LEVEL_EXIT' then
     ---@type LevelExitEntity
     return {
       is_level_exit = true,
-      drawable = { sprite = love.graphics.newImage('assets/exit.png') },
-      collidable = { radius = 16, width = 32, height = 32 },
+      drawable = { color = { g = 0.75 }, width = 16, height = 16 },
+      collidable = { width = 16, height = 16 },
       trigger = {},
+    }
+  elseif type == 'ONE_EYE' then
+    ---@type Killer | Drawable | Movable | Collidable
+    return {
+      kills_player = true,
+      drawable = {
+        width = 16,
+        height = 16,
+        color = { r = 1, b = 1, g = 0 },
+      },
+      movable = {
+        move_forward = true,
+        move_backward = false,
+        acceleration = 3,
+      },
+      collidable = {
+        detection = true,
+        height = 16,
+        width = 16,
+      },
+      velocity = vector(0, 0),
+      delta_position = vector(0, 0),
+      future_position = vector(0, 0),
+      position = vector(0, 0),
+      gravity = {},
     }
   elseif type == 'PLAYER' then
     return {
       camera_actor = { is_active = true },
       controllable = { is_active = true },
       is_character = true,
-      --drawable = {
-      --sprite_offset = vector(-24, 0),
-      --},
-      --animation = {
-      --data = 'assets/dog.json',
-      --image = love.graphics.newImage('assets/dog.png'),
-      --tags = { 'idle', 'run' },
-      --current_tag = 'run',
-      --animation = nil,
-      --},
+      drawable = { color = { r = 1, g = 0, b = 0 }, width = 16, height = 16 },
       player = { is_active = true },
       collidable = {
         detection = true,
         radius = 10,
-        width = 24,
-        height = 46,
-        filter = function(self, other)
-          if other.collidable.is_solid then
-            return 'slide'
-          end
-          return 'cross'
-        end,
+        width = 16,
+        height = 16,
       },
       movable = {
         is_moving = false,
         speed = 0,
-        max_speed = 85,
-        acceleration = 2,
+        max_speed = 850,
+        acceleration = 20,
         move_forward = true,
         move_backward = false,
         last_direction = 'forward',
-      },
-      jumpable = {
-        state = 'jumping',
-        can_jump = true,
-        small_jump_height = 225,
-        large_jump_height = 300,
       },
       velocity = vector(0, 0),
       delta_position = vector(0, 0),
       future_position = vector(0, 0),
       position = vector(0, 0),
-      gravity = { enabled = true, on_ground = false },
+      gravity = {},
     }
   end
 end
@@ -108,8 +125,12 @@ function EntityFactory:build(e)
     entity[k] = v
   end
   if entity.is_level_exit then
-    ---@cast entity LevelExitEntity
-    entity.linked_level_id = e.customFields.entrance.levelIid
+    if IS_DEV and not e.customFields.entrance then
+      print('no linked_level_id for e.level_id')
+    else
+      ---@cast entity LevelExitEntity
+      entity.linked_level_id = e.customFields.entrance.levelIid
+    end
   end
   return { entity }
 end
