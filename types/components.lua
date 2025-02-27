@@ -14,6 +14,8 @@
 ---@field disabled? boolean
 ---@field on_ground? boolean
 
+---@class OldPosition
+---@field old_position Vector.lua
 ---@class Position
 ---@field position Vector.lua
 ---@class FuturePosition

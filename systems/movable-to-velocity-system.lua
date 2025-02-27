@@ -20,11 +20,7 @@ function MovableToVelocitySystem:process(e, dt)
     e.velocity = vector(0, 0)
     return
   end
-  if e.movable.move_forward then
-    e.velocity.x = e.velocity.x + e.movable.acceleration
-  elseif e.movable.move_backward then
-    e.velocity.x = e.velocity.x - e.movable.acceleration
-  end
+  e.velocity.x = e.velocity.x + e.movable.acceleration
   e.velocity = e.velocity * self.friction_vector
 end
 

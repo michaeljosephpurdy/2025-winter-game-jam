@@ -7,8 +7,8 @@ end
 
 ---@param props SystemProps
 function GravityApplicationSystem:initialize(props)
-  self.gravity = 100
-  self.max_gravity = 4000
+  self.gravity = 14
+  self.max_gravity = 300
   self.gravity_vector = vector(0, self.gravity)
   self.game_state = props.game_state
 end

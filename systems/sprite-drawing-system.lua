@@ -1,9 +1,9 @@
 local SpriteDrawingSystem = tiny.sortedProcessingSystem()
 SpriteDrawingSystem.filter = tiny.requireAll('position', 'drawable')
 
----@param e Position | Drawable
+---@param e OldPosition | Position | Drawable
 function SpriteDrawingSystem:filter(e)
-  return e.position and e.drawable
+  return e.old_position and e.position and e.drawable
 end
 
 ---@param props SystemProps
@@ -18,13 +18,14 @@ function SpriteDrawingSystem:compare(e1, e2)
   return (e1.drawable.z_index or 0) < (e2.drawable.z_index or 0)
 end
 
----@param sprite Position | Drawable
+---@param sprite OldPosition | Position | Drawable
 function SpriteDrawingSystem:process(sprite, dt)
   if sprite.drawable.hidden then
     return
   end
   love.graphics.push()
-  local x, y = sprite.position.x, sprite.position.y
+  local pos = lerp(sprite.old_position, sprite.position, dt)
+  local x, y = pos.x, pos.y
   local position_offset = sprite.drawable.sprite_offset or self.default_offset
   local rotation = sprite.drawable.rotation or 0
   local rotation_offset = sprite.drawable.rotation_offset or self.default_offset

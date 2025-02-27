@@ -64,7 +64,8 @@ function parseEntity(type)
       movable = {
         move_forward = true,
         move_backward = false,
-        acceleration = 3,
+        max_speed = 450,
+        acceleration = 15,
       },
       collidable = {
         detection = true,
@@ -93,8 +94,8 @@ function parseEntity(type)
       movable = {
         is_moving = false,
         speed = 0,
-        max_speed = 850,
-        acceleration = 20,
+        max_speed = 450,
+        acceleration = 15,
         move_forward = true,
         move_backward = false,
         last_direction = 'forward',
@@ -119,6 +120,7 @@ function EntityFactory:build(e)
   -- some entities and not all
   local entity = self:build_single({
     position = vector(e.x or 0, e.y or 0),
+    old_position = vector(e.x or 0, e.y or 0),
     type = e.id --[[@as EntityTypes]],
   })
   for k, v in pairs(e.customFields or {}) do

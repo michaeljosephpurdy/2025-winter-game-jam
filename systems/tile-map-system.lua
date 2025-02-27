@@ -17,9 +17,10 @@ function TileMapSystem:initialize(props)
   self.ldtk:load_all()
   self.entity_factory = props.entity_factory
   self.on_image = function(image)
-    ---@type Position | Drawable
+    ---@type OldPosition | Position | Drawable
     local image_data = {
       position = vector(image.x, image.y),
+      old_position = vector(image.x, image.y),
       drawable = { sprite = love.graphics.newImage(image.image), z_index = -1 },
     }
     self.world:add(image_data)

@@ -66,15 +66,11 @@ function CollisionDetectionSystem:process(e, _)
       ---@cast oe +Action
       if oe.action == 'JUMP' then
         self.world:remove(oe)
-        e.velocity.y = -300
+        e.velocity.y = -320
       elseif oe.action == 'LONG_JUMP' then
         self.world:remove(oe)
         e.velocity.y = -200
-        if e.movable.move_forward then
-          e.velocity.x = 800
-        elseif e.movable.move_backward then
-          e.velocity.x = -800
-        end
+        e.velocity.x = 800
       elseif oe.action == 'WAIT' then
         e.movable.paused = true
         self.world:remove(oe)
@@ -89,6 +85,19 @@ function CollisionDetectionSystem:process(e, _)
       ---@cast oe +Killer
       if e.player and oe.kills_player then
         self.world:remove(e)
+        ---@type ScreenTransitionEvent
+        local event = {
+          screen_transition_event = {
+            transition_time = 1,
+          },
+        }
+        self.world:addEntity(event)
+        self.world:add({
+          time_to_live = 0.5,
+          fn = function()
+            self.game_state.state = 'RESTART'
+          end,
+        })
       end
       ---@cast oe -Killer
       ---@cast e -Player
@@ -105,7 +114,7 @@ function CollisionDetectionSystem:process(e, _)
               level_to_load = oe.linked_level_id,
             },
           }
-          tiny_world:addEntity(event)
+          self.world:addEntity(event)
           ---@cast oe -LinkedLevel
         end
       end
