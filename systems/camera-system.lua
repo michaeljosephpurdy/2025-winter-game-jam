@@ -28,7 +28,13 @@ function CameraSystem:initialize(props)
     love.window.setPosition(944, 516)
   end
   props.camera_state.to_game = function(camera_self, x, y)
+    if not x or not y then
+      return nil, nil
+    end
     local _x, _y = self.push:toGame(x, y)
+    if not _x or not _y then
+      return nil, nil
+    end
     return _x + self.position.x, _y + self.position.y
   end
   props.camera_state.to_real = function(camera_self, x, y)

@@ -1,24 +1,25 @@
 {
 	"identifier": "Level_2",
-	"uniqueIdentifer": "f1099430-e920-11ef-bd97-3792d4a529d3",
-	"x": 1232,
+	"uniqueIdentifer": "a54b7ae0-e920-11ef-bd97-2bd0881edbcd",
+	"x": 432,
 	"y": 576,
 	"width": 400,
 	"height": 240,
 	"bgColor": "#696A79",
 	"neighbourLevels": [
 		{
-			"levelIid": "180bc430-e920-11ef-bd97-1703a8ab3e5c",
+			"levelIid": "6b43f440-25d0-11ef-9316-835ad4ed59ca",
 			"dir": "w"
 		},
 		{
-			"levelIid": "ad1c9a00-e920-11ef-bd97-2f711d81e378",
+			"levelIid": "180bc430-e920-11ef-bd97-1703a8ab3e5c",
 			"dir": "e"
 		}
 	],
 	"customFields": {
 		"available_actions": [
-			"LONG_JUMP"
+			"JUMP",
+			"JUMP"
 		]
 	},
 	"layers": [
@@ -30,7 +31,7 @@
 		"PLAYER_SPAWN": [
 			{
 				"id": "PLAYER_SPAWN",
-				"iid": "f109bb41-e920-11ef-bd97-63a95ae372cf",
+				"iid": "a54b7ae2-e920-11ef-bd97-39d3e9431446",
 				"layer": "Entities",
 				"x": 32,
 				"y": 144,
@@ -45,7 +46,7 @@
 		"LEVEL_EXIT": [
 			{
 				"id": "LEVEL_EXIT",
-				"iid": "f109bb42-e920-11ef-bd97-473ca1645b7f",
+				"iid": "a54b7ae3-e920-11ef-bd97-df2b6f62955d",
 				"layer": "Entities",
 				"x": 352,
 				"y": 144,
@@ -54,11 +55,39 @@
 				"color": 2434341,
 				"customFields": {
 					"entrance": {
-						"entityIid": "bd892930-e920-11ef-bd97-ebe93809bdb0",
-						"layerIid": "ad1c9a01-e920-11ef-bd97-b9250d5ca026",
-						"levelIid": "ad1c9a00-e920-11ef-bd97-2f711d81e378",
+						"entityIid": "1a297410-e920-11ef-bd97-8de099f6c7bd",
+						"layerIid": "180bc431-e920-11ef-bd97-bd9f43331ba1",
+						"levelIid": "180bc430-e920-11ef-bd97-1703a8ab3e5c",
 						"worldIid": "6b43cd31-25d0-11ef-9316-03188099d48f"
 					}
+				}
+			}
+		],
+		"TEXT": [
+			{
+				"id": "TEXT",
+				"iid": "a54b7ae4-e920-11ef-bd97-415a673b1281",
+				"layer": "Entities",
+				"x": 208,
+				"y": 192,
+				"width": 16,
+				"height": 16,
+				"color": 18761,
+				"customFields": {
+					"text": "while paused you can place/move actions with left click"
+				}
+			},
+			{
+				"id": "TEXT",
+				"iid": "a54b7ae5-e920-11ef-bd97-2b1fd94085e5",
+				"layer": "Entities",
+				"x": 208,
+				"y": 208,
+				"width": 16,
+				"height": 16,
+				"color": 18761,
+				"customFields": {
+					"text": "actions can be removed with right click"
 				}
 			}
 		]

@@ -1,0 +1,94 @@
+{
+	"identifier": "Level_8",
+	"uniqueIdentifer": "bd4d9580-e920-11ef-bd97-11b5a5a089b6",
+	"x": 3232,
+	"y": 576,
+	"width": 400,
+	"height": 240,
+	"bgColor": "#696A79",
+	"neighbourLevels": [
+		{
+			"levelIid": "8e679190-e920-11ef-bd97-6fa0957835ca",
+			"dir": "w"
+		}
+	],
+	"customFields": {
+		"available_actions": [
+			"WAIT",
+			"JUMP",
+			"JUMP"
+		]
+	},
+	"layers": [
+		"Background.png",
+		"World_Auto.png",
+		"Foreground.png"
+	],
+	"entities": {
+		"PLAYER_SPAWN": [
+			{
+				"id": "PLAYER_SPAWN",
+				"iid": "bd4d9582-e920-11ef-bd97-4b896e1a906f",
+				"layer": "Entities",
+				"x": 352,
+				"y": 144,
+				"width": 16,
+				"height": 16,
+				"color": 0,
+				"customFields": {
+					"move_right": true
+				}
+			}
+		],
+		"STRESS": [
+			{
+				"id": "STRESS",
+				"iid": "bd4d9583-e920-11ef-bd97-9f7fe51942c4",
+				"layer": "Entities",
+				"x": 32,
+				"y": 64,
+				"width": 16,
+				"height": 16,
+				"color": 6776679,
+				"customFields" : {}
+			},
+			{
+				"id": "STRESS",
+				"iid": "bd4d9584-e920-11ef-bd97-cb314dc53e03",
+				"layer": "Entities",
+				"x": 80,
+				"y": 128,
+				"width": 16,
+				"height": 16,
+				"color": 6776679,
+				"customFields" : {}
+			},
+			{
+				"id": "STRESS",
+				"iid": "bd4dbc90-e920-11ef-bd97-91d9b2f34d24",
+				"layer": "Entities",
+				"x": 32,
+				"y": 0,
+				"width": 16,
+				"height": 16,
+				"color": 6776679,
+				"customFields" : {}
+			}
+		],
+		"LEVEL_EXIT": [
+			{
+				"id": "LEVEL_EXIT",
+				"iid": "bd4dbc91-e920-11ef-bd97-6369afcb441c",
+				"layer": "Entities",
+				"x": 368,
+				"y": 176,
+				"width": 16,
+				"height": 16,
+				"color": 2434341,
+				"customFields": {
+					"entrance": null
+				}
+			}
+		]
+	}
+}

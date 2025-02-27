@@ -39,6 +39,13 @@ function GameState:set_actions(actions)
   self.current_action_index = 1
 end
 
+function GameState:add_action(action)
+  table.insert(self.actions, action)
+  if #self.actions == 1 then
+    self.current_action_index = 1
+  end
+end
+
 function GameState:toggle_controls()
   self.controls_locked = not self.controls_locked
 end

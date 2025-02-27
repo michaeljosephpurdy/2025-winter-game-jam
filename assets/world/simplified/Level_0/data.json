@@ -1,24 +1,19 @@
 {
 	"identifier": "Level_0",
 	"uniqueIdentifer": "6b43f440-25d0-11ef-9316-835ad4ed59ca",
-	"x": 432,
+	"x": 32,
 	"y": 576,
 	"width": 400,
 	"height": 240,
 	"bgColor": "#696A79",
 	"neighbourLevels": [
 		{
-			"levelIid": "180bc430-e920-11ef-bd97-1703a8ab3e5c",
+			"levelIid": "a54b7ae0-e920-11ef-bd97-2bd0881edbcd",
 			"dir": "e"
 		}
 	],
 	"customFields": {
-		"available_actions": [
-			"JUMP",
-			"LONG_JUMP",
-			"WAIT",
-			"DRILL"
-		]
+		"available_actions": []
 	},
 	"layers": [
 		"Background.png",
@@ -53,9 +48,9 @@
 				"color": 2434341,
 				"customFields": {
 					"entrance": {
-						"entityIid": "1a297410-e920-11ef-bd97-8de099f6c7bd",
-						"layerIid": "180bc431-e920-11ef-bd97-bd9f43331ba1",
-						"levelIid": "180bc430-e920-11ef-bd97-1703a8ab3e5c",
+						"entityIid": "a54b7ae2-e920-11ef-bd97-39d3e9431446",
+						"layerIid": "a54b7ae1-e920-11ef-bd97-9d506f2f7f70",
+						"levelIid": "a54b7ae0-e920-11ef-bd97-2bd0881edbcd",
 						"worldIid": "6b43cd31-25d0-11ef-9316-03188099d48f"
 					}
 				}
@@ -64,15 +59,15 @@
 		"TEXT": [
 			{
 				"id": "TEXT",
-				"iid": "8f199940-e920-11ef-bd97-67df7a0200bf",
+				"iid": "e1b22cf0-e920-11ef-bd97-4f1bb5852f4a",
 				"layer": "Entities",
 				"x": 192,
-				"y": 112,
+				"y": 192,
 				"width": 16,
 				"height": 16,
 				"color": 18761,
 				"customFields": {
-					"text": "you got this!!\n:)"
+					"text": "press SPACEBAR to pause/unpause"
 				}
 			}
 		]

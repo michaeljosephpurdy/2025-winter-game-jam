@@ -1,18 +1,18 @@
 {
 	"identifier": "Level_4",
-	"uniqueIdentifer": "9a8c1260-e920-11ef-bd97-e94e6a29f9e3",
-	"x": 2032,
+	"uniqueIdentifer": "ad1c9a00-e920-11ef-bd97-2f711d81e378",
+	"x": 1632,
 	"y": 576,
 	"width": 400,
 	"height": 240,
 	"bgColor": "#696A79",
 	"neighbourLevels": [
 		{
-			"levelIid": "ad1c9a00-e920-11ef-bd97-2f711d81e378",
+			"levelIid": "f1099430-e920-11ef-bd97-3792d4a529d3",
 			"dir": "w"
 		},
 		{
-			"levelIid": "66f5fbd0-e920-11ef-bd97-7b3a7d841daf",
+			"levelIid": "9a8c1260-e920-11ef-bd97-e94e6a29f9e3",
 			"dir": "e"
 		}
 	],
@@ -27,10 +27,23 @@
 		"Foreground.png"
 	],
 	"entities": {
+		"STRESS": [
+			{
+				"id": "STRESS",
+				"iid": "ba2d05e0-e920-11ef-bd97-5f078c0f4f66",
+				"layer": "Entities",
+				"x": 368,
+				"y": 176,
+				"width": 16,
+				"height": 16,
+				"color": 6776679,
+				"customFields" : {}
+			}
+		],
 		"PLAYER_SPAWN": [
 			{
 				"id": "PLAYER_SPAWN",
-				"iid": "af46c600-e920-11ef-bd97-0993579b7b1f",
+				"iid": "bd892930-e920-11ef-bd97-ebe93809bdb0",
 				"layer": "Entities",
 				"x": 32,
 				"y": 192,
@@ -42,23 +55,10 @@
 				}
 			}
 		],
-		"ONE_EYE": [
-			{
-				"id": "ONE_EYE",
-				"iid": "bb1c67f0-e920-11ef-bd97-e39767389208",
-				"layer": "Entities",
-				"x": 368,
-				"y": 176,
-				"width": 16,
-				"height": 16,
-				"color": 6776679,
-				"customFields" : {}
-			}
-		],
 		"LEVEL_EXIT": [
 			{
 				"id": "LEVEL_EXIT",
-				"iid": "51a95820-e920-11ef-bd97-011f711e60cd",
+				"iid": "6e7b0390-e920-11ef-bd97-b14cecd0878c",
 				"layer": "Entities",
 				"x": 320,
 				"y": 208,
@@ -67,9 +67,9 @@
 				"color": 2434341,
 				"customFields": {
 					"entrance": {
-						"entityIid": "6b6abb10-e920-11ef-bd97-637818b0490f",
-						"layerIid": "66f5fbd1-e920-11ef-bd97-6b13ed63cd61",
-						"levelIid": "66f5fbd0-e920-11ef-bd97-7b3a7d841daf",
+						"entityIid": "af46c600-e920-11ef-bd97-0993579b7b1f",
+						"layerIid": "9a8c3970-e920-11ef-bd97-b9181b9624f5",
+						"levelIid": "9a8c1260-e920-11ef-bd97-e94e6a29f9e3",
 						"worldIid": "6b43cd31-25d0-11ef-9316-03188099d48f"
 					}
 				}

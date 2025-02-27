@@ -1,0 +1,48 @@
+{
+	"identifier": "Level_9",
+	"uniqueIdentifer": "9099dae0-e920-11ef-bd97-693c11d39033",
+	"x": 2432,
+	"y": 816,
+	"width": 400,
+	"height": 240,
+	"bgColor": "#696A79",
+	"neighbourLevels": [
+		{
+			"levelIid": "9a8c1260-e920-11ef-bd97-e94e6a29f9e3",
+			"dir": "nw"
+		},
+		{
+			"levelIid": "66f5fbd0-e920-11ef-bd97-7b3a7d841daf",
+			"dir": "n"
+		},
+		{
+			"levelIid": "8e679190-e920-11ef-bd97-6fa0957835ca",
+			"dir": "ne"
+		}
+	],
+	"customFields": {
+		"available_actions": []
+	},
+	"layers": [
+		"Background.png",
+		"World_Auto.png",
+		"Foreground.png"
+	],
+	"entities": {
+		"PLAYER_SPAWN": [
+			{
+				"id": "PLAYER_SPAWN",
+				"iid": "af050680-e920-11ef-bd97-895d7881148e",
+				"layer": "Entities",
+				"x": 48,
+				"y": 176,
+				"width": 16,
+				"height": 16,
+				"color": 0,
+				"customFields": {
+					"move_right": true
+				}
+			}
+		]
+	}
+}

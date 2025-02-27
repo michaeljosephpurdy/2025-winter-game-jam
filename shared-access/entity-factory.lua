@@ -6,7 +6,7 @@ local EntityTypes = {
   PLAYER_SPAWN = 'PLAYER_SPAWN',
   LEVEL_EXIT = 'LEVEL_EXIT',
   ACTION = 'ACTION',
-  ONE_EYE = 'ONE_EYE',
+  STRESS = 'STRESS',
   STATIONARY_ACTION = 'STATIONARY_ACTION',
   TEXT = 'TEXT',
 }
@@ -52,7 +52,7 @@ function parseEntity(type)
       collidable = { width = 16, height = 16 },
       trigger = {},
     }
-  elseif type == 'ONE_EYE' then
+  elseif type == 'STRESS' then
     ---@type Killer | Drawable | Movable | Collidable
     return {
       kills_player = true,
@@ -151,6 +151,7 @@ function EntityFactory:build_single(e)
     new_entity[k] = v
   end
   new_entity.position = new_entity.position + position_offset
+  new_entity.old_position = new_entity.position:clone()
   new_entity.type = e.type
   new_entity.draw_debug = true
   return new_entity

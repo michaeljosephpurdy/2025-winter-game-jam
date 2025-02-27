@@ -8,7 +8,7 @@
 	"bgColor": "#696A79",
 	"neighbourLevels": [
 		{
-			"levelIid": "6b43f440-25d0-11ef-9316-835ad4ed59ca",
+			"levelIid": "a54b7ae0-e920-11ef-bd97-2bd0881edbcd",
 			"dir": "w"
 		},
 		{
@@ -60,6 +60,34 @@
 						"levelIid": "f1099430-e920-11ef-bd97-3792d4a529d3",
 						"worldIid": "6b43cd31-25d0-11ef-9316-03188099d48f"
 					}
+				}
+			}
+		],
+		"TEXT": [
+			{
+				"id": "TEXT",
+				"iid": "0c846510-e920-11ef-bd97-ab613b7b6d60",
+				"layer": "Entities",
+				"x": 208,
+				"y": 192,
+				"width": 16,
+				"height": 16,
+				"color": 18761,
+				"customFields": {
+					"text": "press A and D to cycle through actions"
+				}
+			},
+			{
+				"id": "TEXT",
+				"iid": "534752f0-e920-11ef-bd97-b5dc4af247e9",
+				"layer": "Entities",
+				"x": 208,
+				"y": 224,
+				"width": 16,
+				"height": 16,
+				"color": 18761,
+				"customFields": {
+					"text": "hold R to restart the level"
 				}
 			}
 		]

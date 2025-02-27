@@ -35,6 +35,14 @@ function ActionTriggerPlacementSystem:update(dt)
       local actions = self.bump_world:queryPoint(action_x, action_y, action_filter)
       self.picked_up_action = actions[1]
     end
+  elseif self.mouse_state:is_right_click_just_released() then
+    local actions = self.bump_world:queryPoint(action_x, action_y, action_filter)
+    local action = actions[1]
+    if not action then
+      return
+    end
+    self.game_state:add_action(action.action)
+    self.world:remove(action)
   elseif self.mouse_state:is_left_click_just_relased() then
     if self.picked_up_action then
       self.picked_up_action = nil

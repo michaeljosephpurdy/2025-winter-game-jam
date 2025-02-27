@@ -1,19 +1,29 @@
 {
 	"identifier": "Level_5",
-	"uniqueIdentifer": "66f5fbd0-e920-11ef-bd97-7b3a7d841daf",
-	"x": 2432,
+	"uniqueIdentifer": "9a8c1260-e920-11ef-bd97-e94e6a29f9e3",
+	"x": 2032,
 	"y": 576,
 	"width": 400,
 	"height": 240,
 	"bgColor": "#696A79",
 	"neighbourLevels": [
 		{
-			"levelIid": "9a8c1260-e920-11ef-bd97-e94e6a29f9e3",
+			"levelIid": "ad1c9a00-e920-11ef-bd97-2f711d81e378",
 			"dir": "w"
+		},
+		{
+			"levelIid": "66f5fbd0-e920-11ef-bd97-7b3a7d841daf",
+			"dir": "e"
+		},
+		{
+			"levelIid": "9099dae0-e920-11ef-bd97-693c11d39033",
+			"dir": "se"
 		}
 	],
 	"customFields": {
-		"available_actions": []
+		"available_actions": [
+			"JUMP"
+		]
 	},
 	"layers": [
 		"Background.png",
@@ -24,10 +34,10 @@
 		"PLAYER_SPAWN": [
 			{
 				"id": "PLAYER_SPAWN",
-				"iid": "6b6abb10-e920-11ef-bd97-637818b0490f",
+				"iid": "af46c600-e920-11ef-bd97-0993579b7b1f",
 				"layer": "Entities",
 				"x": 32,
-				"y": 64,
+				"y": 192,
 				"width": 16,
 				"height": 16,
 				"color": 0,
@@ -36,31 +46,36 @@
 				}
 			}
 		],
-		"LEVEL_EXIT": [
+		"STRESS": [
 			{
-				"id": "LEVEL_EXIT",
-				"iid": "705d0ec0-e920-11ef-bd97-b56d9e9d091a",
+				"id": "STRESS",
+				"iid": "bb1c67f0-e920-11ef-bd97-e39767389208",
 				"layer": "Entities",
-				"x": 64,
+				"x": 368,
 				"y": 176,
 				"width": 16,
 				"height": 16,
-				"color": 2434341,
-				"customFields": {
-					"entrance": null
-				}
-			},
+				"color": 6776679,
+				"customFields" : {}
+			}
+		],
+		"LEVEL_EXIT": [
 			{
 				"id": "LEVEL_EXIT",
-				"iid": "71be9a90-e920-11ef-bd97-21bb70e6fb90",
+				"iid": "51a95820-e920-11ef-bd97-011f711e60cd",
 				"layer": "Entities",
 				"x": 320,
-				"y": 128,
+				"y": 208,
 				"width": 16,
 				"height": 16,
 				"color": 2434341,
 				"customFields": {
-					"entrance": null
+					"entrance": {
+						"entityIid": "6b6abb10-e920-11ef-bd97-637818b0490f",
+						"layerIid": "66f5fbd1-e920-11ef-bd97-6b13ed63cd61",
+						"levelIid": "66f5fbd0-e920-11ef-bd97-7b3a7d841daf",
+						"worldIid": "6b43cd31-25d0-11ef-9316-03188099d48f"
+					}
 				}
 			}
 		]

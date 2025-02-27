@@ -120,7 +120,7 @@ function love.load(args)
     })
     tiny_world:addEntity({
       screen_transition_event = {
-        transition_time = 4,
+        transition_time = 1.5,
         fade_in = true,
       },
     }--[[@as ScreenTransitionEvent]])
