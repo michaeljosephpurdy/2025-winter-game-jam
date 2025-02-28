@@ -132,6 +132,7 @@ function love.load(args)
 
   systems_last_modified = love.filesystem.getInfo('systems', 'directory').modtime
   shared_access_last_modified = love.filesystem.getInfo('shared-access', 'directory').modtime
+  accumulator = 0
 end
 
 function love.update(dt)
@@ -151,7 +152,12 @@ function love.update(dt)
 end
 
 function love.draw()
-  tiny_world:update(delta_time)
+  --tiny_world:update(delta_time)
+  accumulator = accumulator + delta_time
+  while accumulator >= SIXTY_FPS do
+    tiny_world:update(SIXTY_FPS)
+    accumulator = accumulator - SIXTY_FPS
+  end
 end
 
 function love.keypressed(k)
