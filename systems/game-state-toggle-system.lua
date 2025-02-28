@@ -5,16 +5,21 @@ function GameStateToggleSystem:initialize(props)
   self.game_state = props.game_state
   self.level_info = props.level_information
   self.keyboard_state = props.keyboard_state
+  self.just_restarted = false
 end
 
 function GameStateToggleSystem:update(dt)
-  if self.game_state.state ~= 'RESTART' and self.keyboard_state:is_key_down('r') then
-    self.game_state.restart_timer = self.game_state.restart_timer + dt
-    if self.game_state.restart_timer > 1 then
-      self.game_state.state = 'RESTART'
+  if self.keyboard_state:is_key_down('r') then
+    if self.game_state.state ~= 'RESTART' and not self.just_restarted then
+      self.game_state.restart_timer = self.game_state.restart_timer + dt
+      if self.game_state.restart_timer > 1 then
+        self.just_restarted = true
+        self.game_state.state = 'RESTART'
+      end
     end
   else
     self.game_state.restart_timer = 0
+    self.just_restarted = false
   end
   if self.game_state.state == 'RESTART' then
     self.game_state.restart_timer = 0

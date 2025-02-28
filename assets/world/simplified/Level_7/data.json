@@ -12,7 +12,7 @@
 			"dir": "w"
 		},
 		{
-			"levelIid": "bd4d9580-e920-11ef-bd97-11b5a5a089b6",
+			"levelIid": "871a9b80-e920-11ef-bd97-0da8205c5751",
 			"dir": "e"
 		}
 	],
@@ -83,9 +83,9 @@
 				"color": 2434341,
 				"customFields": {
 					"entrance": {
-						"entityIid": "bd4d9582-e920-11ef-bd97-4b896e1a906f",
-						"layerIid": "bd4d9581-e920-11ef-bd97-3f898e06e698",
-						"levelIid": "bd4d9580-e920-11ef-bd97-11b5a5a089b6",
+						"entityIid": "8be47fa0-e920-11ef-bd97-c9c92c347ca4",
+						"layerIid": "871a9b81-e920-11ef-bd97-058dc1821b5c",
+						"levelIid": "871a9b80-e920-11ef-bd97-0da8205c5751",
 						"worldIid": "6b43cd31-25d0-11ef-9316-03188099d48f"
 					}
 				}

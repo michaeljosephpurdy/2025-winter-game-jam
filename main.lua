@@ -1,5 +1,6 @@
 function love.load(args)
   IS_DEV = args[1] == '--hotreload'
+  STARTING_LEVEL_ID = 'Level_0'
   SIXTY_FPS = 1 / 60
   math.randomseed(os.time())
 
