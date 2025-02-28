@@ -13,6 +13,9 @@ end
 local action_filter = function(item)
   return item.action
 end
+local collidable_filter = function(item)
+  return item.collidable and not item.action
+end
 
 function ActionTriggerPlacementSystem:update(dt)
   if self.game_state.state == 'PLAY' then
@@ -47,6 +50,10 @@ function ActionTriggerPlacementSystem:update(dt)
     if self.picked_up_action then
       self.picked_up_action = nil
     else
+      local collisions = self.bump_world:queryPoint(action_x, action_y, collidable_filter)
+      if #collisions > 0 then
+        return
+      end
       -- check x and y for valid value
       -- spawn corresponding entity
       local action_type = self.game_state:get_action()
