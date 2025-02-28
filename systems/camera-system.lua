@@ -7,6 +7,7 @@ end
 
 ---@param props SystemProps
 function CameraSystem:initialize(props)
+  self.is_draw_system = true
   self.camera_state = props.camera_state
   self.level_info = props.level_information
   self.push = props.push

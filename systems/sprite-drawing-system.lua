@@ -8,6 +8,7 @@ end
 
 ---@param props SystemProps
 function SpriteDrawingSystem:initialize(props)
+  self.is_draw_system = true
   self.ordered_sprites = {}
   self.default_offset = vector(0, 0)
 end

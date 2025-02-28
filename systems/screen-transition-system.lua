@@ -4,6 +4,7 @@ ScreenTransitionSystem.filter = tiny.requireAll('screen_transition_event')
 ---@param props SystemProps
 function ScreenTransitionSystem:initialize(props)
   self.screen_info = props.screen_information
+  self.is_draw_system = true
 end
 
 ---@param e ScreenTransitionEvent

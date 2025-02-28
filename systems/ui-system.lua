@@ -2,6 +2,7 @@ local UISystem = tiny.system()
 
 ---@param props SystemProps
 function UISystem:initialize(props)
+  self.is_draw_system = true
   self.normal_font = love.graphics.newFont('assets/RobotoMono-Regular.ttf', 12, 'mono')
   self.normal_font:setFilter('nearest', 'nearest')
   self.bold_font = love.graphics.newFont('assets/RobotoMono-Bold.ttf', 12, 'mono')

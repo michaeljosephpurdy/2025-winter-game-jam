@@ -2,6 +2,13 @@ function love.load(args)
   IS_DEV = args[1] == '--hotreload'
   STARTING_LEVEL_ID = 'Level_0'
   SIXTY_FPS = 1 / 60
+  update_systems = function(_, s)
+    return not s.is_draw_system
+  end
+  draw_systems = function(_, s)
+    return s.is_draw_system
+  end
+
   math.randomseed(os.time())
 
   json = require('plugins.json')
@@ -18,7 +25,6 @@ function love.load(args)
   GAME_HEIGHT = 240
 
   SYSTEMS_IN_ORDER = {
-    'systems.camera-system',
     'systems.entity-lookup-system',
     'systems.player-spawning-system',
     'systems.mouse-state-system',
@@ -34,6 +40,7 @@ function love.load(args)
     'systems.movable-to-velocity-system',
     'systems.gravity-application-system',
     'systems.entity-movement-system',
+    'systems.camera-system',
     'systems.sprite-animating-system',
     'systems.coroutine-resuming-system',
     'systems.collision-detection-system',
@@ -136,28 +143,16 @@ function love.load(args)
 end
 
 function love.update(dt)
-  delta_time = dt
-  if
-    IS_DEV
-    and (
-      systems_last_modified ~= love.filesystem.getInfo('systems', 'directory').modtime
-      or shared_access_last_modified ~= love.filesystem.getInfo('shared-access', 'directory').modtime
-    )
-  then
-    reload_world()
-    systems_last_modified = love.filesystem.getInfo('systems', 'directory').modtime
-    shared_access_last_modified = love.filesystem.getInfo('shared-access', 'directory').modtime
-    return
+  accumulator = accumulator + dt
+  while accumulator >= SIXTY_FPS do
+    tiny_world:update(SIXTY_FPS, update_systems)
+    accumulator = accumulator - SIXTY_FPS
   end
 end
 
 function love.draw()
-  --tiny_world:update(delta_time)
-  accumulator = accumulator + delta_time
-  while accumulator >= SIXTY_FPS do
-    tiny_world:update(SIXTY_FPS)
-    accumulator = accumulator - SIXTY_FPS
-  end
+  local dt = love.timer.getDelta()
+  tiny_world:update(dt, draw_systems)
 end
 
 function love.keypressed(k)

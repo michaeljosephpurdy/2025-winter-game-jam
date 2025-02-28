@@ -2,6 +2,7 @@ local TextDisplaySystem = tiny.processingSystem()
 TextDisplaySystem.filter = tiny.requireAll('position', 'text')
 
 function TextDisplaySystem:initialize(props)
+  self.is_draw_system = true
   self.font = love.graphics.newFont('assets/RobotoMono-Regular.ttf', 10, 'mono')
   self.font:setFilter('nearest', 'nearest')
 
