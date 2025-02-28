@@ -21,6 +21,7 @@ function PlayerSpawningSystem:onAdd(e)
     self.player.movable.move_backward = true
   end
   self.player.position = e.position:clone()
+  self.player.velocity = vector(0, 0)
   self.world:addEntity(self.player)
 end
 

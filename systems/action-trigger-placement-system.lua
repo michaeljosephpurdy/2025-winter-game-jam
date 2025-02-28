@@ -59,6 +59,15 @@ function ActionTriggerPlacementSystem:update(dt)
         id = 'ACTION',
       })[1]
       action.action = action_type
+      if action_type == 'JUMP' then
+        action.drawable.sprite = love.graphics.newImage('assets/jump-action.png')
+      elseif action_type == 'DRILL' then
+        action.drawable.sprite = love.graphics.newImage('assets/drill-action.png')
+      elseif action_type == 'WAIT' then
+        action.drawable.sprite = love.graphics.newImage('assets/wait-action.png')
+      elseif action_type == 'LONG_JUMP' then
+        action.drawable.sprite = love.graphics.newImage('assets/long-jump-action.png')
+      end
       self.world:addEntity(action)
     end
   end

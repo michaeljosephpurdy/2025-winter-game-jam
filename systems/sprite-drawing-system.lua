@@ -24,6 +24,7 @@ function SpriteDrawingSystem:process(sprite, dt)
     return
   end
   love.graphics.push()
+  love.graphics.setColor(1, 1, 1, 1)
   local pos = lerp(sprite.old_position, sprite.position, dt)
   local x, y = pos.x, pos.y
   local position_offset = sprite.drawable.sprite_offset or self.default_offset
@@ -45,10 +46,7 @@ function SpriteDrawingSystem:process(sprite, dt)
       rotation_offset.x,
       rotation_offset.y
     )
-  elseif sprite.drawable.color then
-    love.graphics.setColor(sprite.drawable.color.r or 0, sprite.drawable.color.g or 0, sprite.drawable.color.b or 0)
-    love.graphics.rectangle('fill', x, y, sprite.drawable.width, sprite.drawable.height)
-  else
+  elseif sprite.drawable.sprite then
     love.graphics.draw(
       sprite.drawable.sprite,
       x + offset_x,
@@ -59,6 +57,9 @@ function SpriteDrawingSystem:process(sprite, dt)
       rotation_offset.x,
       rotation_offset.y
     )
+  elseif sprite.drawable.color then
+    love.graphics.setColor(sprite.drawable.color.r or 0, sprite.drawable.color.g or 0, sprite.drawable.color.b or 0)
+    love.graphics.rectangle('fill', x, y, sprite.drawable.width, sprite.drawable.height)
   end
   love.graphics.pop()
 end
