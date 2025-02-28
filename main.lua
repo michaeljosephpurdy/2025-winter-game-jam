@@ -18,6 +18,7 @@ function love.load(args)
   GAME_HEIGHT = 240
 
   SYSTEMS_IN_ORDER = {
+    'systems.camera-system',
     'systems.entity-lookup-system',
     'systems.player-spawning-system',
     'systems.mouse-state-system',
@@ -40,7 +41,6 @@ function love.load(args)
     'systems.entity-level-boundary-system',
     'systems.player-animation-system',
     'systems.trigger-resetting-system',
-    'systems.camera-system',
     'systems.sprite-drawing-system',
     --'systems.collision-drawing-system',
     'systems.dialogue-system',
