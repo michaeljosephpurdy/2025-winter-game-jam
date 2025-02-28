@@ -127,10 +127,10 @@ function EntityFactory:build(e)
     entity[k] = v
   end
   if entity.is_level_exit then
-    if IS_DEV and not e.customFields.entrance then
-      print('no linked_level_id for e.level_id')
+    ---@cast entity LevelExitEntity
+    if not e.customFields.entrance then
+      entity.linked_level_id = 'Level_9'
     else
-      ---@cast entity LevelExitEntity
       entity.linked_level_id = e.customFields.entrance.levelIid
     end
   end

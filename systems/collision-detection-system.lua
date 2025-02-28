@@ -60,11 +60,11 @@ function CollisionDetectionSystem:process(e, _)
         end
       end
     elseif col.type == 'cross' then
-      if oe.action and not oe.collidable.on_ground then
-        goto continue
-      end
+      ---@cast oe +Collidable
       ---@cast oe +Action
-      if oe.action == 'JUMP' then
+      if oe.action and not oe.collidable.on_ground then
+        -- do nothing
+      elseif oe.action == 'JUMP' then
         self.world:remove(oe)
         e.velocity.y = -320
       elseif oe.action == 'LONG_JUMP' then
@@ -118,7 +118,6 @@ function CollisionDetectionSystem:process(e, _)
           ---@cast oe -LinkedLevel
         end
       end
-      ::continue::
     end
   end
   e.position = vector(new_x, new_y)
