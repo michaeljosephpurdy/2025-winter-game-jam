@@ -60,24 +60,6 @@
 				"color": 2434341,
 				"customFields": {
 					"entrance": {
-						"entityIid": "af050680-e920-11ef-bd97-895d7881148e",
-						"layerIid": "9099dae1-e920-11ef-bd97-6399eeae09cd",
-						"levelIid": "9099dae0-e920-11ef-bd97-693c11d39033",
-						"worldIid": "6b43cd31-25d0-11ef-9316-03188099d48f"
-					}
-				}
-			},
-			{
-				"id": "LEVEL_EXIT",
-				"iid": "71be9a90-e920-11ef-bd97-21bb70e6fb90",
-				"layer": "Entities",
-				"x": 320,
-				"y": 128,
-				"width": 16,
-				"height": 16,
-				"color": 2434341,
-				"customFields": {
-					"entrance": {
 						"entityIid": "9b265b00-e920-11ef-bd97-b352c09ee5c6",
 						"layerIid": "8e679191-e920-11ef-bd97-cb22a1ef31d8",
 						"levelIid": "8e679190-e920-11ef-bd97-6fa0957835ca",
