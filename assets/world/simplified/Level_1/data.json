@@ -19,7 +19,8 @@
 	"customFields": {
 		"available_actions": [
 			"JUMP",
-			"JUMP"
+			"LONG_JUMP",
+			"WAIT"
 		]
 	},
 	"layers": [

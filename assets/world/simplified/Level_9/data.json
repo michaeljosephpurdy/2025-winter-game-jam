@@ -30,6 +30,21 @@
 					"move_right": true
 				}
 			}
+		],
+		"TEXT": [
+			{
+				"id": "TEXT",
+				"iid": "cb3b9f40-e920-11ef-bd97-3ff4e5eac4a9",
+				"layer": "Entities",
+				"x": 88,
+				"y": 200,
+				"width": 16,
+				"height": 16,
+				"color": 18761,
+				"customFields": {
+					"text": "thanks for playing :)"
+				}
+			}
 		]
 	}
 }

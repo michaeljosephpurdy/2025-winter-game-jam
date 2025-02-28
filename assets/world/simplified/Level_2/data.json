@@ -68,12 +68,12 @@
 				"iid": "a54b7ae4-e920-11ef-bd97-415a673b1281",
 				"layer": "Entities",
 				"x": 208,
-				"y": 192,
+				"y": 48,
 				"width": 16,
 				"height": 16,
 				"color": 18761,
 				"customFields": {
-					"text": "left click to place actions, right click to remove actions"
+					"text": "click anywhere to place an available action"
 				}
 			},
 			{
@@ -86,15 +86,15 @@
 				"height": 16,
 				"color": 18761,
 				"customFields": {
-					"text": "actions can only be touched when paused"
+					"text": "action placement can only be modified while paused"
 				}
 			},
 			{
 				"id": "TEXT",
-				"iid": "d6903a10-e920-11ef-bd97-b3b5d154198a",
+				"iid": "33bd9420-e920-11ef-bd97-1780545e5763",
 				"layer": "Entities",
 				"x": 208,
-				"y": 208,
+				"y": 200,
 				"width": 16,
 				"height": 16,
 				"color": 18761,

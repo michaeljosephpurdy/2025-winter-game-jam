@@ -67,7 +67,20 @@
 				"height": 16,
 				"color": 18761,
 				"customFields": {
-					"text": "press SPACEBAR to pause/unpause"
+					"text": "this is a game about indirect actions with direct impact"
+				}
+			},
+			{
+				"id": "TEXT",
+				"iid": "aa97de30-e920-11ef-bd97-19a1787b6d3b",
+				"layer": "Entities",
+				"x": 208,
+				"y": 216,
+				"width": 16,
+				"height": 16,
+				"color": 18761,
+				"customFields": {
+					"text": "press SPACEBAR to pause and unpause"
 				}
 			}
 		]

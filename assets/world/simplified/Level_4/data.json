@@ -76,6 +76,21 @@
 					}
 				}
 			}
+		],
+		"TEXT": [
+			{
+				"id": "TEXT",
+				"iid": "8a71edc0-e920-11ef-bd97-efae913e273c",
+				"layer": "Entities",
+				"x": 200,
+				"y": 120,
+				"width": 16,
+				"height": 16,
+				"color": 18761,
+				"customFields": {
+					"text": "do not let your opponents touch you"
+				}
+			}
 		]
 	}
 }

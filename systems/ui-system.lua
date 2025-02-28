@@ -20,7 +20,7 @@ function UISystem:update(dt)
   love.graphics.push()
   love.graphics.origin()
   love.graphics.setColor(self.text_color_r, self.text_color_g, self.text_color_b)
-  love.graphics.print('ACTIONS', self.bold_font, 0, 0)
+  love.graphics.print('AVAILABLE ACTIONS', self.bold_font, 0, 0)
   for i, action in ipairs(self.game_state.actions) do
     local y = i * 24
     if i == self.game_state.current_action_index then
