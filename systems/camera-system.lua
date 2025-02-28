@@ -18,7 +18,7 @@ function CameraSystem:initialize(props)
     resizable = true,
   })
   self.push:resize(windowWidth, windowHeight)
-  self.push:setBorderColor(PALETTE.BORDER)
+  self.push:setBorderColor(PALETTE.BACKGROUND)
   self.position = vector(0, 0)
   self.offset = vector(-GAME_WIDTH / 2, -GAME_HEIGHT / 2)
   self.speed = 5
@@ -45,7 +45,6 @@ end
 ---@param dt number
 function CameraSystem:preWrap(dt)
   self.push:start()
-  love.graphics.clear(PALETTE.BACKGROUND)
   self.position = self.level_info.top_left:clone()
   love.graphics.translate(-self.level_info.top_left.x, -self.level_info.top_left.y)
 end
