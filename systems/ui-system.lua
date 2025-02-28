@@ -31,7 +31,7 @@ function UISystem:update(dt)
   end
   if self.game_state.state == 'PAUSE' then
     love.graphics.setColor(self.text_color_r, self.text_color_g, self.text_color_b, 0.5)
-    love.graphics.print('PAUSE', self.large_font, GAME_WIDTH / 2.4, GAME_HEIGHT / 2)
+    love.graphics.print('PAUSE', self.large_font, GAME_WIDTH / 2.4, GAME_HEIGHT / 4)
   end
   if self.game_state.restart_timer > 0 then
     love.graphics.setColor(self.text_color_r, self.text_color_g, self.text_color_b, 1)

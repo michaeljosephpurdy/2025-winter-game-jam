@@ -1842,7 +1842,7 @@
 						},
 						{
 							"__identifier": "TEXT",
-							"__grid": [12,12],
+							"__grid": [13,12],
 							"__pivot": [0.5,0.5],
 							"__tags": [],
 							"__tile": null,
@@ -1851,12 +1851,12 @@
 							"width": 16,
 							"height": 16,
 							"defUid": 87,
-							"px": [192,192],
+							"px": [208,192],
 							"fieldInstances": [{ "__identifier": "text", "__type": "String", "__value": "press SPACEBAR to pause/unpause", "__tile": null, "defUid": 88, "realEditorValues": [{
 								"id": "V_String",
 								"params": ["press SPACEBAR to pause/unpause"]
 							}] }],
-							"__worldX": 224,
+							"__worldX": 240,
 							"__worldY": 768
 						}
 					]
