@@ -2726,6 +2726,25 @@
 							}] }],
 							"__worldX": 1584,
 							"__worldY": 720
+						},
+						{
+							"__identifier": "TEXT",
+							"__grid": [12,12],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#004949",
+							"iid": "92b014a0-e920-11ef-bd97-19a78867533b",
+							"width": 16,
+							"height": 16,
+							"defUid": 87,
+							"px": [200,200],
+							"fieldInstances": [{ "__identifier": "text", "__type": "String", "__value": "press 'M' to toggle audio", "__tile": null, "defUid": 88, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["press 'M' to toggle audio"]
+							}] }],
+							"__worldX": 1432,
+							"__worldY": 776
 						}
 					]
 				},

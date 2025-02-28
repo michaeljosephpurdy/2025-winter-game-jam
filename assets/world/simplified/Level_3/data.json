@@ -61,6 +61,21 @@
 					}
 				}
 			}
+		],
+		"TEXT": [
+			{
+				"id": "TEXT",
+				"iid": "92b014a0-e920-11ef-bd97-19a78867533b",
+				"layer": "Entities",
+				"x": 200,
+				"y": 200,
+				"width": 16,
+				"height": 16,
+				"color": 18761,
+				"customFields": {
+					"text": "press 'M' to toggle audio"
+				}
+			}
 		]
 	}
 }
