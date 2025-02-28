@@ -1,6 +1,16 @@
 ---@meta
 ---Components are colletions of data that make up entities
 
+---@alias SoundType
+---| 'MUSIC'
+---| 'JUMP'
+---| 'BUMP'
+---| 'WIN'
+---| 'LONG_JUMP'
+---| 'DIE'
+---@class Audio
+---@field audio SoundType
+
 ---@class CameraActor
 ---@field camera_actor _CameraActor
 ---@class _CameraActor

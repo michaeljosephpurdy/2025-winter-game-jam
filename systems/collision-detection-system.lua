@@ -33,6 +33,7 @@ function CollisionDetectionSystem:process(e, _)
   if self.game_state.state == 'PAUSE' then
     return
   end
+  local was_on_ground = e.collidable.on_ground
   e.collidable.on_ground = false
   e.collidable.left_wall = false
   e.collidable.right_wall = false
@@ -49,14 +50,19 @@ function CollisionDetectionSystem:process(e, _)
         e.velocity.y = 0
         if col.normal.y < 0 then
           e.collidable.on_ground = true
+          if not was_on_ground then
+            self.world:addEntity({ audio = 'BUMP' }--[[@as Audio]])
+          end
           new_y = col.other.position.y - e.collidable.height
         end
       else
         if col.normal.x < 0 then
           e.collidable.right_wall = true
+          self.world:addEntity({ audio = 'BUMP' }--[[@as Audio]])
         end
         if col.normal.x > 0 then
           e.collidable.left_wall = true
+          self.world:addEntity({ audio = 'BUMP' }--[[@as Audio]])
         end
       end
     elseif col.type == 'cross' then
@@ -66,9 +72,11 @@ function CollisionDetectionSystem:process(e, _)
         -- do nothing
       elseif oe.action == 'JUMP' then
         self.world:remove(oe)
+        self.world:addEntity({ audio = 'JUMP' }--[[@as Audio]])
         e.velocity.y = -320
       elseif oe.action == 'LONG_JUMP' then
         self.world:remove(oe)
+        self.world:addEntity({ audio = 'LONG_JUMP' }--[[@as Audio]])
         e.velocity.y = -200
         e.velocity.x = 800
       elseif oe.action == 'WAIT' then
@@ -84,6 +92,7 @@ function CollisionDetectionSystem:process(e, _)
       ---@cast e +Player
       ---@cast oe +Killer
       if e.player and oe.kills_player then
+        self.world:addEntity({ audio = 'DIE' }--[[@as Audio]])
         self.world:remove(e)
         ---@type ScreenTransitionEvent
         local event = {
@@ -114,6 +123,7 @@ function CollisionDetectionSystem:process(e, _)
               level_to_load = oe.linked_level_id,
             },
           }
+          self.world:addEntity({ audio = 'WIN' }--[[@as Audio]])
           self.world:addEntity(event)
           ---@cast oe -LinkedLevel
         end
