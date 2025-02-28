@@ -27,9 +27,9 @@
 		"Foreground.png"
 	],
 	"entities": {
-		"STRESS": [
+		"OPPONENT": [
 			{
-				"id": "STRESS",
+				"id": "OPPONENT",
 				"iid": "ba2d05e0-e920-11ef-bd97-5f078c0f4f66",
 				"layer": "Entities",
 				"x": 368,
@@ -37,7 +37,9 @@
 				"width": 16,
 				"height": 16,
 				"color": 6776679,
-				"customFields" : {}
+				"customFields": {
+					"team": "ARSENAL"
+				}
 			}
 		],
 		"PLAYER_SPAWN": [

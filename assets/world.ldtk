@@ -11,7 +11,7 @@
 	"iid": "6b43cd30-25d0-11ef-9316-d574a723fe9f",
 	"jsonVersion": "1.5.3",
 	"appBuildId": 473703,
-	"nextUid": 93,
+	"nextUid": 95,
 	"identifierStyle": "Capitalize",
 	"toc": [],
 	"worldLayout": "Free",
@@ -1463,7 +1463,7 @@
 			]
 		},
 		{
-			"identifier": "STRESS",
+			"identifier": "OPPONENT",
 			"uid": 75,
 			"tags": [],
 			"exportToToc": false,
@@ -1487,7 +1487,7 @@
 			"showName": true,
 			"tilesetId": 18,
 			"tileRenderMode": "FitInside",
-			"tileRect": { "tilesetUid": 18, "x": 240, "y": 880, "w": 16, "h": 16 },
+			"tileRect": { "tilesetUid": 18, "x": 240, "y": 688, "w": 16, "h": 16 },
 			"uiTileRect": null,
 			"nineSliceBorders": [],
 			"maxCount": 0,
@@ -1495,7 +1495,48 @@
 			"limitBehavior": "MoveLastOne",
 			"pivotX": 0,
 			"pivotY": 0,
-			"fieldDefs": []
+			"fieldDefs": [
+				{
+					"identifier": "team",
+					"doc": null,
+					"__type": "LocalEnum.Teams",
+					"uid": 94,
+					"type": "F_Enum(93)",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayScale": 1,
+					"editorDisplayPos": "Above",
+					"editorLinkStyle": "StraightArrow",
+					"editorDisplayColor": null,
+					"editorAlwaysShow": false,
+					"editorShowInWorld": true,
+					"editorCutLongValues": true,
+					"editorTextSuffix": null,
+					"editorTextPrefix": null,
+					"useForSmartColor": false,
+					"exportToToc": false,
+					"searchable": false,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": {
+						"id": "V_String",
+						"params": ["ARSENAL"]
+					},
+					"textLanguageMode": null,
+					"symmetricalRef": false,
+					"autoChainRef": true,
+					"allowOutOfLevelRef": true,
+					"allowedRefs": "OnlySame",
+					"allowedRefsEntityUid": null,
+					"allowedRefTags": [],
+					"tilesetUid": null
+				}
+			]
 		},
 		{
 			"identifier": "STATIONARY_ACTION",
@@ -1714,6 +1755,12 @@
 			{ "id": "LONG_JUMP", "tileRect": null, "color": 2434341 },
 			{ "id": "DRILL", "tileRect": null, "color": 6776679 },
 			{ "id": "WAIT", "tileRect": null, "color": 16777215 }
+		], "iconTilesetUid": null, "externalRelPath": null, "externalFileChecksum": null, "tags": [] },
+		{ "identifier": "Teams", "uid": 93, "values": [
+			{ "id": "SPURS", "tileRect": null, "color": 6776679 },
+			{ "id": "LIVERPOOL", "tileRect": null, "color": 0 },
+			{ "id": "ARSENAL", "tileRect": null, "color": 2434341 },
+			{ "id": "WOLVES", "tileRect": null, "color": 16777215 }
 		], "iconTilesetUid": null, "externalRelPath": null, "externalFileChecksum": null, "tags": [] }
 	], "externalEnums": [], "levelFields": [
 		{
@@ -2375,16 +2422,16 @@
 							"height": 16,
 							"defUid": 87,
 							"px": [208,192],
-							"fieldInstances": [{ "__identifier": "text", "__type": "String", "__value": "while paused you can place/move actions with left click", "__tile": null, "defUid": 88, "realEditorValues": [{
+							"fieldInstances": [{ "__identifier": "text", "__type": "String", "__value": "left click to place actions, right click to remove actions", "__tile": null, "defUid": 88, "realEditorValues": [{
 								"id": "V_String",
-								"params": ["while paused you can place/move actions with left click"]
+								"params": ["left click to place actions, right click to remove actions"]
 							}] }],
 							"__worldX": 640,
 							"__worldY": 768
 						},
 						{
 							"__identifier": "TEXT",
-							"__grid": [13,13],
+							"__grid": [13,14],
 							"__pivot": [0.5,0.5],
 							"__tags": [],
 							"__tile": null,
@@ -2393,10 +2440,29 @@
 							"width": 16,
 							"height": 16,
 							"defUid": 87,
-							"px": [208,208],
-							"fieldInstances": [{ "__identifier": "text", "__type": "String", "__value": "actions can be removed with right click", "__tile": null, "defUid": 88, "realEditorValues": [{
+							"px": [208,224],
+							"fieldInstances": [{ "__identifier": "text", "__type": "String", "__value": "actions can only be touched when paused", "__tile": null, "defUid": 88, "realEditorValues": [{
 								"id": "V_String",
-								"params": ["actions can be removed with right click"]
+								"params": ["actions can only be touched when paused"]
+							}] }],
+							"__worldX": 640,
+							"__worldY": 800
+						},
+						{
+							"__identifier": "TEXT",
+							"__grid": [13,13],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#004949",
+							"iid": "d6903a10-e920-11ef-bd97-b3b5d154198a",
+							"width": 16,
+							"height": 16,
+							"defUid": 87,
+							"px": [208,208],
+							"fieldInstances": [{ "__identifier": "text", "__type": "String", "__value": "actions can be moved by dragging them", "__tile": null, "defUid": 88, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["actions can be moved by dragging them"]
 							}] }],
 							"__worldX": 640,
 							"__worldY": 784
@@ -2816,18 +2882,18 @@
 					"gridTiles": [],
 					"entityInstances": [
 						{
-							"__identifier": "STRESS",
+							"__identifier": "OPPONENT",
 							"__grid": [23,11],
 							"__pivot": [0,0],
 							"__tags": [],
-							"__tile": { "tilesetUid": 18, "x": 240, "y": 880, "w": 16, "h": 16 },
+							"__tile": { "tilesetUid": 18, "x": 240, "y": 688, "w": 16, "h": 16 },
 							"__smartColor": "#676767",
 							"iid": "ba2d05e0-e920-11ef-bd97-5f078c0f4f66",
 							"width": 16,
 							"height": 16,
 							"defUid": 75,
 							"px": [368,176],
-							"fieldInstances": [],
+							"fieldInstances": [{ "__identifier": "team", "__type": "LocalEnum.Teams", "__value": "ARSENAL", "__tile": null, "defUid": 94, "realEditorValues": [] }],
 							"__worldX": 2000,
 							"__worldY": 752
 						},
@@ -3088,18 +3154,18 @@
 							"__worldY": 768
 						},
 						{
-							"__identifier": "STRESS",
+							"__identifier": "OPPONENT",
 							"__grid": [23,11],
 							"__pivot": [0,0],
 							"__tags": [],
-							"__tile": { "tilesetUid": 18, "x": 240, "y": 880, "w": 16, "h": 16 },
+							"__tile": { "tilesetUid": 18, "x": 240, "y": 688, "w": 16, "h": 16 },
 							"__smartColor": "#676767",
 							"iid": "bb1c67f0-e920-11ef-bd97-e39767389208",
 							"width": 16,
 							"height": 16,
 							"defUid": 75,
 							"px": [368,176],
-							"fieldInstances": [],
+							"fieldInstances": [{ "__identifier": "team", "__type": "LocalEnum.Teams", "__value": "ARSENAL", "__tile": null, "defUid": 94, "realEditorValues": [] }],
 							"__worldX": 2400,
 							"__worldY": 752
 						},
@@ -3650,34 +3716,37 @@
 							"__worldY": 720
 						},
 						{
-							"__identifier": "STRESS",
+							"__identifier": "OPPONENT",
 							"__grid": [2,4],
 							"__pivot": [0,0],
 							"__tags": [],
-							"__tile": { "tilesetUid": 18, "x": 240, "y": 880, "w": 16, "h": 16 },
+							"__tile": { "tilesetUid": 18, "x": 240, "y": 688, "w": 16, "h": 16 },
 							"__smartColor": "#676767",
 							"iid": "09b369c0-e920-11ef-bd97-23a83c888b38",
 							"width": 16,
 							"height": 16,
 							"defUid": 75,
 							"px": [32,64],
-							"fieldInstances": [],
+							"fieldInstances": [{ "__identifier": "team", "__type": "LocalEnum.Teams", "__value": "LIVERPOOL", "__tile": null, "defUid": 94, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["LIVERPOOL"]
+							}] }],
 							"__worldX": 2864,
 							"__worldY": 640
 						},
 						{
-							"__identifier": "STRESS",
+							"__identifier": "OPPONENT",
 							"__grid": [5,8],
 							"__pivot": [0,0],
 							"__tags": [],
-							"__tile": { "tilesetUid": 18, "x": 240, "y": 880, "w": 16, "h": 16 },
+							"__tile": { "tilesetUid": 18, "x": 240, "y": 688, "w": 16, "h": 16 },
 							"__smartColor": "#676767",
 							"iid": "30c7fda0-e920-11ef-bd97-7b952cd209fa",
 							"width": 16,
 							"height": 16,
 							"defUid": 75,
 							"px": [80,128],
-							"fieldInstances": [],
+							"fieldInstances": [{ "__identifier": "team", "__type": "LocalEnum.Teams", "__value": "ARSENAL", "__tile": null, "defUid": 94, "realEditorValues": [] }],
 							"__worldX": 2912,
 							"__worldY": 704
 						},
@@ -3704,6 +3773,25 @@
 							}] }],
 							"__worldX": 3200,
 							"__worldY": 752
+						},
+						{
+							"__identifier": "TEXT",
+							"__grid": [12,1],
+							"__pivot": [0.5,0.5],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#004949",
+							"iid": "9d62d120-e920-11ef-bd97-79c3b2e2f3e9",
+							"width": 16,
+							"height": 16,
+							"defUid": 87,
+							"px": [200,24],
+							"fieldInstances": [{ "__identifier": "text", "__type": "String", "__value": "you can pause at any time", "__tile": null, "defUid": 88, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["you can pause at any time"]
+							}] }],
+							"__worldX": 3032,
+							"__worldY": 600
 						}
 					]
 				},
@@ -3978,50 +4066,59 @@
 							"__worldY": 720
 						},
 						{
-							"__identifier": "STRESS",
+							"__identifier": "OPPONENT",
 							"__grid": [2,4],
 							"__pivot": [0,0],
 							"__tags": [],
-							"__tile": { "tilesetUid": 18, "x": 240, "y": 880, "w": 16, "h": 16 },
+							"__tile": { "tilesetUid": 18, "x": 240, "y": 688, "w": 16, "h": 16 },
 							"__smartColor": "#676767",
 							"iid": "bd4d9583-e920-11ef-bd97-9f7fe51942c4",
 							"width": 16,
 							"height": 16,
 							"defUid": 75,
 							"px": [32,64],
-							"fieldInstances": [],
+							"fieldInstances": [{ "__identifier": "team", "__type": "LocalEnum.Teams", "__value": "ARSENAL", "__tile": null, "defUid": 94, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["ARSENAL"]
+							}] }],
 							"__worldX": 3264,
 							"__worldY": 640
 						},
 						{
-							"__identifier": "STRESS",
+							"__identifier": "OPPONENT",
 							"__grid": [5,8],
 							"__pivot": [0,0],
 							"__tags": [],
-							"__tile": { "tilesetUid": 18, "x": 240, "y": 880, "w": 16, "h": 16 },
+							"__tile": { "tilesetUid": 18, "x": 240, "y": 688, "w": 16, "h": 16 },
 							"__smartColor": "#676767",
 							"iid": "bd4d9584-e920-11ef-bd97-cb314dc53e03",
 							"width": 16,
 							"height": 16,
 							"defUid": 75,
 							"px": [80,128],
-							"fieldInstances": [],
+							"fieldInstances": [{ "__identifier": "team", "__type": "LocalEnum.Teams", "__value": "WOLVES", "__tile": null, "defUid": 94, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["WOLVES"]
+							}] }],
 							"__worldX": 3312,
 							"__worldY": 704
 						},
 						{
-							"__identifier": "STRESS",
+							"__identifier": "OPPONENT",
 							"__grid": [2,0],
 							"__pivot": [0,0],
 							"__tags": [],
-							"__tile": { "tilesetUid": 18, "x": 240, "y": 880, "w": 16, "h": 16 },
+							"__tile": { "tilesetUid": 18, "x": 240, "y": 688, "w": 16, "h": 16 },
 							"__smartColor": "#676767",
 							"iid": "bd4dbc90-e920-11ef-bd97-91d9b2f34d24",
 							"width": 16,
 							"height": 16,
 							"defUid": 75,
 							"px": [32,0],
-							"fieldInstances": [],
+							"fieldInstances": [{ "__identifier": "team", "__type": "LocalEnum.Teams", "__value": "LIVERPOOL", "__tile": null, "defUid": 94, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["LIVERPOOL"]
+							}] }],
 							"__worldX": 3264,
 							"__worldY": 576
 						},

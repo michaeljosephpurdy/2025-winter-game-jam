@@ -6,7 +6,7 @@ local EntityTypes = {
   PLAYER_SPAWN = 'PLAYER_SPAWN',
   LEVEL_EXIT = 'LEVEL_EXIT',
   ACTION = 'ACTION',
-  STRESS = 'STRESS',
+  OPPONENT = 'OPPONENT',
   STATIONARY_ACTION = 'STATIONARY_ACTION',
   TEXT = 'TEXT',
 }
@@ -48,11 +48,11 @@ function parseEntity(type)
     ---@type LevelExitEntity
     return {
       is_level_exit = true,
-      drawable = { color = { g = 0.75 }, width = 16, height = 16 },
+      drawable = { sprite = love.graphics.newImage('assets/trophy.png'), width = 16, height = 16 },
       collidable = { width = 16, height = 16 },
       trigger = {},
     }
-  elseif type == 'STRESS' then
+  elseif type == 'OPPONENT' then
     ---@type Killer | Drawable | Movable | Collidable
     return {
       kills_player = true,
@@ -83,6 +83,7 @@ function parseEntity(type)
       camera_actor = { is_active = true },
       controllable = { is_active = true },
       is_character = true,
+      team = 'SPURS',
       drawable = { color = { r = 1, g = 0, b = 0 }, width = 16, height = 16 },
       player = { is_active = true },
       collidable = {
@@ -125,6 +126,17 @@ function EntityFactory:build(e)
   })
   for k, v in pairs(e.customFields or {}) do
     entity[k] = v
+  end
+  if entity.team then
+    if entity.team == 'SPURS' then
+      entity.drawable.sprite = love.graphics.newImage('assets/spurs.png')
+    elseif entity.team == 'LIVERPOOL' then
+      entity.drawable.sprite = love.graphics.newImage('assets/liverpool.png')
+    elseif entity.team == 'WOLVES' then
+      entity.drawable.sprite = love.graphics.newImage('assets/wolves.png')
+    elseif entity.team == 'ARSENAL' then
+      entity.drawable.sprite = love.graphics.newImage('assets/arsenal.png')
+    end
   end
   if entity.is_level_exit then
     ---@cast entity LevelExitEntity

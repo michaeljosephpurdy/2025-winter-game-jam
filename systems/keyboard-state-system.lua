@@ -17,9 +17,6 @@ function System:onAdd(e)
   end
   if e.event.key_release then
     self.keyboard:release(e.event.keycode)
-    if e.event.keycode == 'escape' then
-      start_game()
-    end
   else
     self.keyboard:push(e.event.keycode)
   end

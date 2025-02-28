@@ -42,9 +42,9 @@
 				}
 			}
 		],
-		"STRESS": [
+		"OPPONENT": [
 			{
-				"id": "STRESS",
+				"id": "OPPONENT",
 				"iid": "bb1c67f0-e920-11ef-bd97-e39767389208",
 				"layer": "Entities",
 				"x": 368,
@@ -52,7 +52,9 @@
 				"width": 16,
 				"height": 16,
 				"color": 6776679,
-				"customFields" : {}
+				"customFields": {
+					"team": "ARSENAL"
+				}
 			}
 		],
 		"LEVEL_EXIT": [

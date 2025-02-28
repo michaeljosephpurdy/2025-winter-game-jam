@@ -40,9 +40,9 @@
 				}
 			}
 		],
-		"STRESS": [
+		"OPPONENT": [
 			{
-				"id": "STRESS",
+				"id": "OPPONENT",
 				"iid": "bd4d9583-e920-11ef-bd97-9f7fe51942c4",
 				"layer": "Entities",
 				"x": 32,
@@ -50,10 +50,12 @@
 				"width": 16,
 				"height": 16,
 				"color": 6776679,
-				"customFields" : {}
+				"customFields": {
+					"team": "ARSENAL"
+				}
 			},
 			{
-				"id": "STRESS",
+				"id": "OPPONENT",
 				"iid": "bd4d9584-e920-11ef-bd97-cb314dc53e03",
 				"layer": "Entities",
 				"x": 80,
@@ -61,10 +63,12 @@
 				"width": 16,
 				"height": 16,
 				"color": 6776679,
-				"customFields" : {}
+				"customFields": {
+					"team": "WOLVES"
+				}
 			},
 			{
-				"id": "STRESS",
+				"id": "OPPONENT",
 				"iid": "bd4dbc90-e920-11ef-bd97-91d9b2f34d24",
 				"layer": "Entities",
 				"x": 32,
@@ -72,7 +76,9 @@
 				"width": 16,
 				"height": 16,
 				"color": 6776679,
-				"customFields" : {}
+				"customFields": {
+					"team": "LIVERPOOL"
+				}
 			}
 		],
 		"LEVEL_EXIT": [

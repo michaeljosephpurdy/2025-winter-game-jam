@@ -43,9 +43,9 @@
 				}
 			}
 		],
-		"STRESS": [
+		"OPPONENT": [
 			{
-				"id": "STRESS",
+				"id": "OPPONENT",
 				"iid": "09b369c0-e920-11ef-bd97-23a83c888b38",
 				"layer": "Entities",
 				"x": 32,
@@ -53,10 +53,12 @@
 				"width": 16,
 				"height": 16,
 				"color": 6776679,
-				"customFields" : {}
+				"customFields": {
+					"team": "LIVERPOOL"
+				}
 			},
 			{
-				"id": "STRESS",
+				"id": "OPPONENT",
 				"iid": "30c7fda0-e920-11ef-bd97-7b952cd209fa",
 				"layer": "Entities",
 				"x": 80,
@@ -64,7 +66,9 @@
 				"width": 16,
 				"height": 16,
 				"color": 6776679,
-				"customFields" : {}
+				"customFields": {
+					"team": "ARSENAL"
+				}
 			}
 		],
 		"LEVEL_EXIT": [
@@ -84,6 +88,21 @@
 						"levelIid": "bd4d9580-e920-11ef-bd97-11b5a5a089b6",
 						"worldIid": "6b43cd31-25d0-11ef-9316-03188099d48f"
 					}
+				}
+			}
+		],
+		"TEXT": [
+			{
+				"id": "TEXT",
+				"iid": "9d62d120-e920-11ef-bd97-79c3b2e2f3e9",
+				"layer": "Entities",
+				"x": 200,
+				"y": 24,
+				"width": 16,
+				"height": 16,
+				"color": 18761,
+				"customFields": {
+					"text": "you can pause at any time"
 				}
 			}
 		]

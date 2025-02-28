@@ -10,7 +10,7 @@ love_files = [
 ]
 
 [lovejs]
-title = "2025-winter-game-jam"
+title = "COYS"
 memory = "200000000"  # starting memory of the webpage (default is 20 MB)
 
 [macos]
