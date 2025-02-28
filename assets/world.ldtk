@@ -2967,25 +2967,6 @@
 							}] }],
 							"__worldX": 1952,
 							"__worldY": 784
-						},
-						{
-							"__identifier": "TEXT",
-							"__grid": [12,7],
-							"__pivot": [0.5,0.5],
-							"__tags": [],
-							"__tile": null,
-							"__smartColor": "#004949",
-							"iid": "8a71edc0-e920-11ef-bd97-efae913e273c",
-							"width": 16,
-							"height": 16,
-							"defUid": 87,
-							"px": [200,120],
-							"fieldInstances": [{ "__identifier": "text", "__type": "String", "__value": "do not let your opponents touch you", "__tile": null, "defUid": 88, "realEditorValues": [{
-								"id": "V_String",
-								"params": ["do not let your opponents touch you"]
-							}] }],
-							"__worldX": 1832,
-							"__worldY": 696
 						}
 					]
 				},
@@ -4490,7 +4471,7 @@
 						},
 						{
 							"__identifier": "TEXT",
-							"__grid": [5,12],
+							"__grid": [5,11],
 							"__pivot": [0.5,0.5],
 							"__tags": [],
 							"__tile": null,
@@ -4499,13 +4480,13 @@
 							"width": 16,
 							"height": 16,
 							"defUid": 87,
-							"px": [88,200],
+							"px": [88,184],
 							"fieldInstances": [{ "__identifier": "text", "__type": "String", "__value": "thanks for playing :)", "__tile": null, "defUid": 88, "realEditorValues": [{
 								"id": "V_String",
 								"params": ["thanks for playing :)"]
 							}] }],
 							"__worldX": 2168,
-							"__worldY": 1400
+							"__worldY": 1384
 						}
 					]
 				},
